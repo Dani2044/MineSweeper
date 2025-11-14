@@ -64,7 +64,5 @@ class Player:
       # end for
     # end if
   # end def
-
 # end class
-
 ## eof - HumanWithZeroFilling.py

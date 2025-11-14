@@ -46,7 +46,5 @@ class Player:
   def report( self, i, j, n ):
     pass
   # end def
-
 # end class
-
 ## eof - Random.py

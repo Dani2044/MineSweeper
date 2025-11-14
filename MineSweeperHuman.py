@@ -53,8 +53,8 @@ if __name__ == '__main__':
     print( board )
     i, j = player.choose_cell( w, h, m )
     print( 'Cell =', i, j )
-    n = board.click( i, j )
     neighbor = board.collectNeighbors( i, j)
+    n = board.click( i, j )
     player.report( i, j, n )
   # end while
 
@@ -66,7 +66,5 @@ if __name__ == '__main__':
     print( "You lose :-(" )
   # end if
   print( '====================================================' )
-
 # end if
-
 ## eof - MineSweeper.py

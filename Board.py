@@ -174,7 +174,6 @@ class Board:
     rows = len(self.m_Mines)
     cols = len(self.m_Mines[0])
     
-    # 8 possible directions (up, down, left, right, and diagonals)
     directions = [
         (-1, -1), (-1, 0), (-1, 1),
         (0, -1),          (0, 1),
@@ -183,7 +182,6 @@ class Board:
     
     for dr, dc in directions:
       r, c = i + dr, j + dc
-      # Check boundaries
       if 0 <= r < rows and 0 <= c < cols:
         #Check if its revealed
         if self.m_Patches[r][c]:
@@ -210,6 +208,4 @@ class Board:
     return neighbors
   # end def
 # end class
-
 ## eof - Board.py
-

@@ -13,10 +13,11 @@ import random
 """
 class Player:
 
+  model = None
+
   '''
   '''
   def __init__( self, args ):
-    self.model = None
     self.train()
   # end def
 
@@ -54,9 +55,10 @@ class Player:
     best_i = None
     best_j = None
     min_p_mine = float('inf')
+
     for i in range(w):
       for j in range(h):
-        if board.m_Patches[i][j] == 9:
+        if not board.m_Patches[i][j]:
           x = self.collect_neighbors(board, i, j)
           p = self.model.predict_proba([x])[0][1]
           if p < min_p_mine:
@@ -65,6 +67,7 @@ class Player:
             best_j = j
     
     if min_p_mine == float('inf'):
+      print("Random")
       best_i = random.randint(0, w - 1)
       best_j = random.randint(0, h - 1)
 
@@ -88,8 +91,8 @@ class Player:
       # Check boundaries
       if 0 <= r < rows and 0 <= c < cols:
         #Check if its revealed
-        if board.m_Patches[r][c] != 9:
-          neighbors.append(board.m_Patches[r][c])
+        if board.m_Patches[r][c]:
+          neighbors.append(board.m_Mines[r][c])
         else:
           neighbors.append(9)
         # end if
@@ -99,7 +102,5 @@ class Player:
     # end for
     
     return neighbors
-
 # end class
-
 ## eof - SmartPlayer.py
